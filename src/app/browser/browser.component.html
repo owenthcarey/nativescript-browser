@@ -1,22 +1,17 @@
 <GridLayout rows="auto, *">
   <StackLayout orientation="horizontal" horizontalAlignment="center" row="0">
     <TextField
-      #urlField
+      #urlTextField
       [text]="url"
-      (textChange)="onTextChanged($event)"
-      width="80%"
+      (returnPress)="onReturnPress()"
+      width="100%"
       class="input"
+      returnKeyType="go"
     ></TextField>
-    <Button
-      text="Go"
-      (tap)="browse()"
-      width="20%"
-      class="btn btn-primary"
-    ></Button>
   </StackLayout>
   <WebView
     [src]="url"
-    (loadFinished)="onWebViewLoaded($event)"
+    (loadFinished)="onLoadFinished($event)"
     row="1"
   ></WebView>
 </GridLayout>

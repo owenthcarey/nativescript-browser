@@ -1,26 +1,26 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { WebView, LoadEventData } from '@nativescript/core';
-import { TextField } from '@nativescript/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { LoadEventData, Page, WebView } from '@nativescript/core';
 
 @Component({
   moduleId: module.id,
   selector: 'ns-browser',
   templateUrl: 'browser.component.html',
 })
-export class BrowserComponent {
-  public url: string = 'https://www.google.com';
-  @ViewChild('urlField') urlField: ElementRef;
+export class BrowserComponent implements OnInit {
+  url = 'https://www.google.com';
+  @ViewChild('urlTextField') urlTextField: ElementRef;
 
-  browse() {
-    this.url = this.urlField.nativeElement.text;
+  constructor(private page: Page) {}
+
+  ngOnInit() {
+    this.page.actionBarHidden = true;
   }
 
-  onTextChanged(args) {
-    let textField = <TextField>args.object;
-    this.url = textField.text;
+  onReturnPress() {
+    this.url = this.urlTextField.nativeElement.text;
   }
 
-  onWebViewLoaded(args: LoadEventData) {
+  onLoadFinished(args: LoadEventData) {
     let webView = <WebView>args.object;
     console.log('WebView is loaded. URL: ' + webView.src);
   }
