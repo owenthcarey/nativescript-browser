@@ -2,6 +2,9 @@
   "name": "nativescript-browser",
   "main": "./src/main.ts",
   "version": "1.0.0",
+  "scripts": {
+    "prettier": "npx prettier --write '**/*.{hbs,html,scss,ts}'"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~15.2.0",
@@ -15,6 +18,7 @@
     "@nativescript/angular": "^15.0.0",
     "@nativescript/core": "~8.5.0",
     "@nativescript/theme": "~3.0.2",
+    "prettier": "^2.8.8",
     "rxjs": "~7.6.0",
     "zone.js": "~0.13.0"
   },

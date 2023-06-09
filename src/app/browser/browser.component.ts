@@ -5,7 +5,7 @@ import { TextField } from '@nativescript/core';
 @Component({
   moduleId: module.id,
   selector: 'ns-browser',
-  templateUrl: 'browser.component.html'
+  templateUrl: 'browser.component.html',
 })
 export class BrowserComponent {
   public url: string = 'https://www.google.com';
@@ -22,6 +22,6 @@ export class BrowserComponent {
 
   onWebViewLoaded(args: LoadEventData) {
     let webView = <WebView>args.object;
-    console.log("WebView is loaded. URL: " + webView.src);
+    console.log('WebView is loaded. URL: ' + webView.src);
   }
 }
