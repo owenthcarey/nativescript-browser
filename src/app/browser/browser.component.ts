@@ -35,8 +35,7 @@ export class BrowserComponent implements OnInit {
     }
   }
 
-  onWebViewLoadFinished(args: LoadEventData) {
+  onLoadFinished(args: LoadEventData) {
     this.urlTextFieldRef.nativeElement.text = args.url;
-    console.log('WebView is loaded. URL: ' + args.url);
   }
 }
