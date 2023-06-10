@@ -1,16 +1,16 @@
 <GridLayout rows="auto, *">
-  <StackLayout orientation="horizontal" horizontalAlignment="center" row="0">
-    <Button text="<" (tap)="onGoBack()" width="20%" class="btn"></Button>
+  <GridLayout rows="auto, *" columns="auto, *, auto">
+    <Button text="<" (tap)="onGoBack()" class="btn" col="0"></Button>
     <TextField
       #urlTextFieldRef
       [text]="url"
       (returnPress)="onReturnPress()"
-      width="60%"
       class="input"
       returnKeyType="go"
+      col="1"
     ></TextField>
-    <Button text=">" (tap)="onGoForward()" width="20%" class="btn"></Button>
-  </StackLayout>
+    <Button text=">" (tap)="onGoForward()" class="btn" col="2"></Button>
+  </GridLayout>
   <WebView
     #webViewRef
     [src]="url"

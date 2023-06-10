@@ -1,7 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { WebView, LoadEventData } from '@nativescript/core';
-import { TextField } from '@nativescript/core';
-import { Page } from '@nativescript/core';
+import { LoadEventData, Page, WebView } from '@nativescript/core';
 
 @Component({
   moduleId: module.id,
@@ -9,7 +7,7 @@ import { Page } from '@nativescript/core';
   templateUrl: 'browser.component.html',
 })
 export class BrowserComponent implements OnInit {
-  url = 'https://www.google.com';
+  url = 'https://google.com';
   @ViewChild('urlTextFieldRef') urlTextFieldRef: ElementRef;
   @ViewChild('webViewRef') webViewRef: ElementRef;
 
@@ -38,7 +36,7 @@ export class BrowserComponent implements OnInit {
   }
 
   onWebViewLoadFinished(args: LoadEventData) {
-    let webView = <WebView>args.object;
-    console.log('WebView is loaded. URL: ' + webView.src);
+    this.urlTextFieldRef.nativeElement.text = args.url;
+    console.log('WebView is loaded. URL: ' + args.url);
   }
 }
