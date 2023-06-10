@@ -18,7 +18,6 @@
     "@nativescript/angular": "^15.0.0",
     "@nativescript/core": "~8.5.0",
     "@nativescript/theme": "~3.0.2",
-    "prettier": "^2.8.8",
     "rxjs": "~7.6.0",
     "zone.js": "~0.13.0"
   },
@@ -30,6 +29,7 @@
     "@nativescript/types": "~8.5.0",
     "@nativescript/webpack": "~5.0.14",
     "@ngtools/webpack": "~15.2.0",
+    "prettier": "^2.8.8",
     "typescript": "~4.8.4"
   }
 }
