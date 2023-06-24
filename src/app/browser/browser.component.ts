@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
-import { LoadEventData, Page, WebView } from '@nativescript/core';
+import { isAndroid, LoadEventData, Page, WebView } from '@nativescript/core';
 
 @Component({
   moduleId: module.id,
@@ -7,7 +7,10 @@ import { LoadEventData, Page, WebView } from '@nativescript/core';
   templateUrl: 'browser.component.html',
 })
 export class BrowserComponent implements OnInit {
-  url = 'https://google.com';
+  backwardArrowSrc = isAndroid ? '' : 'res://ArrowBackward';
+  forwardArrowSrc = isAndroid ? '' : 'res://ArrowForward';
+
+  url = 'https://youtube.com';
   @ViewChild('urlTextFieldRef') urlTextFieldRef: ElementRef;
   @ViewChild('webViewRef') webViewRef: ElementRef;
 

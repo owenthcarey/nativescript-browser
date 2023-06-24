@@ -1,6 +1,7 @@
 <GridLayout rows="auto, *">
   <GridLayout rows="auto, *" columns="auto, *, auto">
-    <Button text="<" (tap)="onGoBack()" col="0"></Button>
+    <!--    <Button text="<" (tap)="onGoBack()" col="0"></Button>-->
+    <Image src="{{ backwardArrowSrc }}" (tap)="onGoBack()" col="0"></Image>
     <TextField
       #urlTextFieldRef
       [text]="url"
@@ -8,7 +9,8 @@
       returnKeyType="go"
       col="1"
     ></TextField>
-    <Button text=">" (tap)="onGoForward()" col="2"></Button>
+    <!--    <Button text=">" (tap)="onGoForward()" col="2"></Button>-->
+    <Image src="{{ forwardArrowSrc }}" (tap)="onGoForward()" col="2"></Image>
   </GridLayout>
   <WebView
     #webViewRef
