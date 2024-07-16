@@ -1,8 +1,8 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { isAndroid, LoadEventData, Page, WebView } from '@nativescript/core';
+import { BookmarkService } from '~/app/services/bookmark.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'ns-browser',
   templateUrl: 'browser.component.html',
 })
@@ -14,7 +14,7 @@ export class BrowserComponent implements OnInit {
   @ViewChild('urlTextFieldRef') urlTextFieldRef: ElementRef;
   @ViewChild('webViewRef') webViewRef: ElementRef;
 
-  constructor(private page: Page) {}
+  constructor(private page: Page, public bookmarkService: BookmarkService) {}
 
   ngOnInit() {
     this.page.actionBarHidden = true;
@@ -40,5 +40,9 @@ export class BrowserComponent implements OnInit {
 
   onLoadFinished(args: LoadEventData) {
     this.urlTextFieldRef.nativeElement.text = args.url;
+  }
+
+  onBookmark() {
+    this.bookmarkService.toggleBookmark(this.url);
   }
 }

@@ -1,7 +1,7 @@
-<GridLayout rows="auto, *">
-  <GridLayout rows="auto, *" columns="auto, *, auto">
-    <!--    <Button text="<" (tap)="onGoBack()" col="0"></Button>-->
-    <Image src="{{ backwardArrowSrc }}" (tap)="onGoBack()" col="0"></Image>
+<GridLayout rows="auto, auto, *">
+  <GridLayout row="0" columns="auto, *, auto">
+    <Button text="<" (tap)="onGoBack()" col="0"></Button>
+<!--    <Image [src]="backwardArrowSrc" (tap)="onGoBack()" col="0"></Image>-->
     <TextField
       #urlTextFieldRef
       [text]="url"
@@ -9,13 +9,17 @@
       returnKeyType="go"
       col="1"
     ></TextField>
-    <!--    <Button text=">" (tap)="onGoForward()" col="2"></Button>-->
-    <Image src="{{ forwardArrowSrc }}" (tap)="onGoForward()" col="2"></Image>
+    <Button text=">" (tap)="onGoForward()" col="3"></Button>
+<!--    <Image [src]="forwardArrowSrc" (tap)="onGoForward()" col="2"></Image>-->
+  </GridLayout>
+  <GridLayout row="1" columns="*, *">
+    <Button col="0" text="Bookmark" (tap)="onBookmark()" [ngStyle]="{ 'background-color': bookmarkService.isBookmark(url) ? 'green' : 'red' }"></Button>
+    <Button col="1" text="Bookmarks"></Button>
   </GridLayout>
   <WebView
     #webViewRef
+    row="2"
     [src]="url"
     (loadFinished)="onLoadFinished($event)"
-    row="1"
   ></WebView>
 </GridLayout>
