@@ -39,7 +39,7 @@ export class BrowserComponent implements OnInit {
   }
 
   onLoadFinished(args: LoadEventData) {
-    this.urlTextFieldRef.nativeElement.text = args.url;
+    this.url = args.url;
   }
 
   onBookmark() {

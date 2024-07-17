@@ -14,7 +14,7 @@
   </GridLayout>
   <GridLayout row="1" columns="*, *">
     <Button col="0" text="Bookmark" (tap)="onBookmark()" [ngStyle]="{ 'background-color': bookmarkService.isBookmark(url) ? 'green' : 'red' }"></Button>
-    <Button col="1" text="Bookmarks"></Button>
+    <Button col="1" text="Bookmarks" [nsRouterLink]="['/bookmarks']"></Button>
   </GridLayout>
   <WebView
     #webViewRef

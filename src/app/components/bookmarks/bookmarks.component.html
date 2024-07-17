@@ -1,0 +1,11 @@
+<GridLayout rows="auto, *">
+  <Label row="0" text="Bookmarks" style="font-size: 24px; margin: 10px;"></Label>
+  <ListView row="1" [items]="bookmarks">
+    <ng-template let-bookmark="item">
+      <GridLayout columns="*, auto" style="padding: 10px; border-bottom-width: 1px;">
+        <Label column="0" [text]="bookmark" style="font-size: 18px;"></Label>
+        <Button column="1" text="Remove" (tap)="removeBookmark(bookmark)" style="margin: 0 10px;"></Button>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+</GridLayout>
