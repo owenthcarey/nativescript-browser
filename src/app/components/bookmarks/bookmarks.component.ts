@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'ns-bookmarks',
-  templateUrl: './bookmarks.component.html',
-  styleUrls: ['./bookmarks.component.css'],
+  templateUrl: 'bookmarks.component.html',
 })
 export class BookmarksComponent implements OnInit {
   bookmarks: string[];
@@ -13,7 +12,7 @@ export class BookmarksComponent implements OnInit {
   private bookmarkService = inject(BookmarkService);
   private router = inject(Router);
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loadBookmarks();
   }
 

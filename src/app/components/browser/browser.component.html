@@ -1,19 +1,24 @@
 <GridLayout rows="auto, auto, *">
   <GridLayout row="0" columns="auto, *, auto">
-    <Button text="<" (tap)="onGoBack()" col="0"></Button>
-<!--    <Image [src]="backwardArrowSrc" (tap)="onGoBack()" col="0"></Image>-->
+    <Button col="0" text="<" (tap)="onGoBack()"></Button>
+<!--    <Image col="0" [src]="backwardArrowSrc" (tap)="onGoBack()"></Image>-->
     <TextField
       #urlTextFieldRef
+      col="1"
       [text]="url"
       (returnPress)="onReturnPress()"
       returnKeyType="go"
-      col="1"
     ></TextField>
-    <Button text=">" (tap)="onGoForward()" col="3"></Button>
-<!--    <Image [src]="forwardArrowSrc" (tap)="onGoForward()" col="2"></Image>-->
+    <Button col="3" text=">" (tap)="onGoForward()"></Button>
+<!--    <Image col="2" [src]="forwardArrowSrc" (tap)="onGoForward()"></Image>-->
   </GridLayout>
   <GridLayout row="1" columns="*, *">
-    <Button col="0" text="Bookmark" (tap)="onBookmark()" [ngStyle]="{ 'background-color': bookmarkService.isBookmark(url) ? 'green' : 'red' }"></Button>
+    <Button
+      col="0"
+      text="Bookmark"
+      (tap)="onBookmark()"
+      [ngStyle]="{ 'background-color': bookmarkService.isBookmark(url) ? 'green' : 'red' }"
+    ></Button>
     <Button col="1" text="Bookmarks" [nsRouterLink]="['/bookmarks']"></Button>
   </GridLayout>
   <WebView
