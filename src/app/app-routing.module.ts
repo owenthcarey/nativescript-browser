@@ -10,6 +10,7 @@ import {
 const routes: Routes = [
   { path: '', redirectTo: '/browser', pathMatch: 'full' },
   { path: 'browser', component: BrowserComponent },
+  { path: 'browser/:url', component: BrowserComponent },
   { path: 'bookmarks', component: BookmarksComponent },
 ];
 

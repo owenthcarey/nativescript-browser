@@ -1,6 +1,13 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  OnInit,
+  inject
+} from '@angular/core';
 import { isAndroid, LoadEventData, Page, WebView } from '@nativescript/core';
 import { BookmarkService } from '~/app/services/bookmark.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'ns-browser',
@@ -14,10 +21,17 @@ export class BrowserComponent implements OnInit {
   @ViewChild('urlTextFieldRef') urlTextFieldRef: ElementRef;
   @ViewChild('webViewRef') webViewRef: ElementRef;
 
-  constructor(private page: Page, public bookmarkService: BookmarkService) {}
+  bookmarkService = inject(BookmarkService);
+  private page = inject(Page);
+  private route = inject(ActivatedRoute);
 
   ngOnInit() {
     this.page.actionBarHidden = true;
+    this.route.params.subscribe(params => {
+      if (params['url']) {
+        this.url = params['url'];
+      }
+    });
   }
 
   onReturnPress() {

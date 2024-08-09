@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { BookmarkService } from '~/app/services/bookmark.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ns-bookmarks',
@@ -9,7 +10,8 @@ import { BookmarkService } from '~/app/services/bookmark.service';
 export class BookmarksComponent implements OnInit {
   bookmarks: string[];
 
-  constructor(private bookmarkService: BookmarkService) {}
+  private bookmarkService = inject(BookmarkService);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.loadBookmarks();
@@ -17,6 +19,10 @@ export class BookmarksComponent implements OnInit {
 
   loadBookmarks() {
     this.bookmarks = this.bookmarkService.getBookmarks();
+  }
+
+  selectBookmark(url: string) {
+    this.router.navigate(['/browser', { url }]);
   }
 
   removeBookmark(url: string) {
