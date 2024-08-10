@@ -17,7 +17,7 @@ export class BrowserComponent implements OnInit {
   backwardArrowSrc = isAndroid ? '' : 'res://ArrowBackward';
   forwardArrowSrc = isAndroid ? '' : 'res://ArrowForward';
 
-  url = 'https://youtube.com';
+  url = 'https://google.com/';
   @ViewChild('urlTextFieldRef') urlTextFieldRef: ElementRef;
   @ViewChild('webViewRef') webViewRef: ElementRef;
 
